@@ -1,3 +1,5 @@
+package bots;
+
 public class FelixBot implements FourWinsBot {
 
 

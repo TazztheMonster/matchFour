@@ -1,3 +1,7 @@
+package game;
+
+import bots.FourWinsBot;
+
 public class Game{
 
     private FourWinsBot bot1;
@@ -11,7 +15,7 @@ public class Game{
      *
      * @param bot1 is the stating bot. (X)
      * @param bot2 is the second bot.  (O)
-     * As default OutputMode BASIC is selected.
+     * As default game.OutputMode BASIC is selected.
      */
     public Game(FourWinsBot bot1, FourWinsBot bot2) {
         this(bot1, bot2, OutputMode.BASIC);

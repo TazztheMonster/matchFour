@@ -1,3 +1,7 @@
+import bots.FelixBot;
+import game.Game;
+import game.OutputMode;
+
 public class Application {
 
     public static void main(String[] args) {
