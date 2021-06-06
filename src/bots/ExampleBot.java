@@ -9,7 +9,7 @@ public class ExampleBot implements MatchFourBot {
 
 
     @Override
-    public int turn(char[][] board) {
+    public int turn(char[][] board, char icon) {
         return (int) (Math.random()*7);
     }
 

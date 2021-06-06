@@ -6,7 +6,7 @@ public class EuloBot implements MatchFourBot{
 	private int nextSpalte = 0;
 	
 	@Override
-	public int turn(char[][] board) {
+	public int turn(char[][] board, char icon) {
 		
 		if(nextSpalte >= 6)
 			nextSpalte = 0;

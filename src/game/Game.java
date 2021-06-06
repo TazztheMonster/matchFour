@@ -41,9 +41,9 @@ public class Game{
         this.gameBoard = new GameBoard();
         for (int i = 0; i <= 60; i++) {
             if((i % 2 == 0) != reversedStart) {
-                this.gameBoard.place(this.BOT1ICON, this.bot1.turn(this.gameBoard.getBoard()));
+                this.gameBoard.place(this.BOT1ICON, this.bot1.turn(this.gameBoard.getBoard(), this.BOT1ICON));
             } else {
-                this.gameBoard.place(this.BOT2ICON, this.bot2.turn(this.gameBoard.getBoard()));
+                this.gameBoard.place(this.BOT2ICON, this.bot2.turn(this.gameBoard.getBoard(), this.BOT2ICON));
             }
             if(this.gameBoard.isFinished()) {
                 winningOutput();
