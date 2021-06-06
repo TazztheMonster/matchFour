@@ -57,3 +57,10 @@ nb-configuration.xml
 ## OS X
 ##############################
 .DS_Store
+
+##############################
+## matchFourGame
+##############################
+application/
+game/
+bots/MatchFourBot.java
