@@ -1,6 +1,11 @@
 package bots;
 
+/**
+ * @author Felix Pape
+ */
 public class FelixBot implements FourWinsBot {
+
+    final String BOTNAME = "Chaos Bot";
 
 
     @Override
@@ -11,6 +16,11 @@ public class FelixBot implements FourWinsBot {
     @Override
     public void won(boolean won) {
 
+    }
+
+    @Override
+    public String getBotName() {
+        return BOTNAME;
     }
 
 }

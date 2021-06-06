@@ -6,4 +6,6 @@ public interface FourWinsBot {
 
     void won(boolean won);
 
+    String getBotName();
+
 }
