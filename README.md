@@ -19,7 +19,8 @@ For pushing your bot into the repository there are some rules:
 1. Please push no changes in files except of your bot. If you create a merge request with changes outside your bot, it will be refused.
 2. You can give other Bots a look if you are searching for an idea, but do not copy any code from there into your bot.
 3. The return value from the `getBotName()` method has to match your class and file name. (more or less)
-4. Have fun
+4. No active sysouts or similar in the bot.
+5. Have fun
 
 ## How to clone the repository?
 
