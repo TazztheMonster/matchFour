@@ -6,6 +6,7 @@ public interface MatchFourBot {
      * This will be called every time, your bot has to do a turn.
      *
      * @param board is the gameBoard where your bot has to do its move.
+     * @param icon the icon you bot play's with.
      * @return the column where your bot wants to place it's stone.
      */
     int turn(char[][] board, char icon);
