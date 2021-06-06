@@ -37,3 +37,11 @@ If you are stuck with these, take a look at the `exampleBot.java`.
 
 After you forked this repository, create your own bot and pushed your code into your repository, at your repository page should appear a `Compare & pull request` button.
 With this you can create a pull request that I can merge into this repository by time.
+
+## FAQ
+
+### Unable to auto-detect email address on git commit
+
+You have to define your mail adress and name for git. You can do this by run:<br/>
+`git config --global user.email "you@example.com"`<br/>
+`git config --global user.name "Your Name"`
