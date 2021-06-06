@@ -36,7 +36,7 @@ public class GameBoard {
         return false;
     }
 
-    public boolean checkForWinn() {
+    private boolean checkForWinn() {
 
         for(int i = 0; i < this.WIDTH; i++) {
             for (int j = 0; j < this.HEIGHT; j++) {
