@@ -18,6 +18,9 @@ public class GameBoard {
         this.winningIcon = ' ';
     }
 
+    /**
+     * @return the game board as char array. 0/0 is the top left corner.
+     */
     public char[][] getBoard() {
         return board.clone();
     }
