@@ -1,12 +1,12 @@
 package game;
 
-import bots.FourWinsBot;
+import bots.MatchFourBot;
 
 public class Game{
 
-    private FourWinsBot bot1;
+    private MatchFourBot bot1;
     private char BOT1ICON = 'X';
-    private FourWinsBot bot2;
+    private MatchFourBot bot2;
     private char BOT2ICON = 'O';
     private OutputMode outputMode;
     private GameBoard gameBoard;
@@ -17,7 +17,7 @@ public class Game{
      * @param bot2 is the second bot.  (O)
      * As default game.OutputMode BASIC is selected.
      */
-    public Game(FourWinsBot bot1, FourWinsBot bot2) {
+    public Game(MatchFourBot bot1, MatchFourBot bot2) {
         this(bot1, bot2, OutputMode.BASIC);
     }
 
@@ -27,7 +27,7 @@ public class Game{
      * @param bot2 is the second bot.  (O)
      * @param outputMode defines the output on the console.
      */
-    public Game(FourWinsBot bot1, FourWinsBot bot2, OutputMode outputMode) {
+    public Game(MatchFourBot bot1, MatchFourBot bot2, OutputMode outputMode) {
         this.bot1 = bot1;
         this.bot2 = bot2;
         this.outputMode = outputMode;

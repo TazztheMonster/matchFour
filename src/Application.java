@@ -1,4 +1,4 @@
-import bots.FelixBot;
+import bots.ExampleBot;
 import game.Game;
 import game.OutputMode;
 
@@ -10,7 +10,7 @@ public class Application {
         int bot2Win = 0;
         int draw = 0;
 
-        Game game = new Game(new FelixBot(), new FelixBot(), OutputMode.NONE);
+        Game game = new Game(new ExampleBot(), new ExampleBot(), OutputMode.NONE);
 
         for (int i = 0; i < 100; i++) {
             switch (game.startRound(i % 2 == 1)) {

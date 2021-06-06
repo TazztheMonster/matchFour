@@ -3,9 +3,9 @@ package bots;
 /**
  * @author Felix Pape
  */
-public class FelixBot implements FourWinsBot {
+public class ExampleBot implements MatchFourBot {
 
-    final String BOTNAME = "Chaos Bot";
+    final String BOTNAME = "Example Bot";
 
 
     @Override
@@ -22,5 +22,20 @@ public class FelixBot implements FourWinsBot {
     public String getBotName() {
         return BOTNAME;
     }
+
+
+        /*
+char []   []
+     /     |
+    V      |
+    0      |
+    1      |
+    2      |
+    3      |
+    4      |
+    5      |
+    6      V
+      0 1 2 3 4 5 6
+     */
 
 }

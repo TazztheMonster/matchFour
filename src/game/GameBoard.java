@@ -5,7 +5,6 @@ import java.util.Collections;
 
 public class GameBoard {
 
-
     private char[][] board;
     private final int HEIGHT = 7;
     private final int WIDTH = 7;
@@ -137,24 +136,5 @@ public class GameBoard {
     public char getWinningIcon() {
         return winningIcon;
     }
-
-
-
-
-
-
-    /*
-char []   []
-     /     |
-    V      |
-    0      |
-    1      |
-    2      |
-    3      |
-    4      |
-    5      |
-    6      V
-      0 1 2 3 4 5 6
-     */
 
 }

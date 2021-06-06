@@ -1,6 +1,6 @@
 package bots;
 
-public interface FourWinsBot {
+public interface MatchFourBot {
 
     int turn(char[][] board);
 
