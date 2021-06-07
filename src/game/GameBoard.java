@@ -22,7 +22,11 @@ public class GameBoard {
      * @return the game board as char array. 0/0 is the top left corner.
      */
     public char[][] getBoard() {
-        return board.clone();
+        char[][] boardCopy = new char[board[0].length][];
+        for (int i = 0; i < board.length; i++) {
+            boardCopy[i] = board[i].clone();
+        }
+        return boardCopy;
     }
 
     public boolean place(char player, int position) {
