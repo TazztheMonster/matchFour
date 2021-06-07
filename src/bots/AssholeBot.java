@@ -6,6 +6,15 @@ import java.util.Arrays;
  * 
  * @author Fabian Duerkop
  *
+ * @version 1.0.0
+ * 
+ * @implNote
+ * AssholeBot is still a little stupid, trying to block other bots
+ * is its number 1 priority. If it doesn't need to block others it
+ * tries to get 4 in a row or column. The concept of diagonals is 
+ * still unknown for it.
+ * Maybe it will evolve into something more intelligent some day.
+ *
  */
 public class AssholeBot implements MatchFourBot {
 
@@ -13,6 +22,13 @@ public class AssholeBot implements MatchFourBot {
     private char[][] board = new char[7][7];
     private char myIcon;
 
+    /**
+     * AssholeBot is still a little stupid, trying to block other bots
+     * is its number 1 priority. If it doesn't need to block others it
+     * tries to get 4 in a row or column. The concept of diagonals is 
+     * still unknown for it.
+     * Maybe it will evolve into something more intelligent some day.
+     */
     public AssholeBot() {
         
     }
