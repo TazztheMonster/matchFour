@@ -44,80 +44,32 @@ public class GameBoard {
     }
 
     private boolean checkForWinn() {
+        int[] dirX = new int[] {1, 1, 0, 1};
+        int[] dirY = new int[] {0, 1, 1, -1};
 
-        for(int i = 0; i < this.WIDTH; i++) {
-            for (int j = 0; j < this.HEIGHT; j++) {
-                if(this.board[j][i] != ' ' && (checkForLeftWin(j, i) || checkForRightWin(j, i) || checkForUpperLeftWin(j, i) || checkForUpperRightWin(j, i) || checkForVerticalWin(j, i))) {
-                    this.winningIcon = this.board[j][i];
-                    this.finished = true;
-                    return true;
+        for (int y = 0; y < this.HEIGHT; y++) {
+            for (int x = 0; x < this.WIDTH; x++) {
+                if (this.board[y][x] == ' ') {
+                    continue;
+                }
+                for (int dir = 0; dir < dirX.length; dir++) {
+
+                    int step = 1;
+                    int dx, dy;
+                    while ((dx = x + dirX[dir] * step) < this.WIDTH && dx >= 0
+                            && (dy = y + dirY[dir] * step) < this.HEIGHT && dy >= 0
+                            && board[y][x] == board[dy][dx]) {
+                        if (step++ >= 3) {
+                            this.winningIcon = this.board[y][x];
+                            this.finished = true;
+                            return true;
+                        }
+                    }
                 }
             }
         }
-
         return false;
     }
-
-    private boolean checkForLeftWin(int height, int width) {
-        if (width <= 2) {
-            return false;
-        }
-        for (int i = width - 1; i >= width - 3; i--) {
-            if (this.board[height][i] != this.board[height][width]) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private boolean checkForRightWin(int height, int width) {
-        if (width >= this.WIDTH - 4) {
-            return false;
-        }
-        for (int i = width + 1; i <= width + 3; i++) {
-            if (this.board[height][i] != this.board[height][width]) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private boolean checkForUpperLeftWin(int height, int width) {
-        if (width <= 2 || height <= 2) {
-            return false;
-        }
-        for (int i = width - 1, j = height - 1; i >= width - 3 && j >= height -3; i--, j--) {
-            if (this.board[j][i] != this.board[height][width]) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private boolean checkForUpperRightWin(int height, int width) {
-        if (width >= this.WIDTH - 4 || height <= 2) {
-            return false;
-        }
-        for (int i = width + 1, j = height - 1; i <= width + 3 && j >= height -3; i++, j--) {
-            if (this.board[j][i] != this.board[height][width]) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private boolean checkForVerticalWin(int height, int width) {
-        if (height <= 2) {
-            return false;
-        }
-        for (int i = height - 1; i >= height -3; i--) {
-            if (this.board[i][width] != this.board[height][width]) {
-                return false;
-            }
-        }
-        return true;
-    }
-
 
     @Override
     public String toString() {
