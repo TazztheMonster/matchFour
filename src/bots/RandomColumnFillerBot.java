@@ -7,7 +7,7 @@ import java.util.Collections;
 /**
  * @author Daniel Nitschke
  */
-public class RandomColumnFiller implements MatchFourBot {
+public class RandomColumnFillerBot implements MatchFourBot {
 	int column = -1;
 	
 	@Override
