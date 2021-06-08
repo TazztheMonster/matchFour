@@ -7,10 +7,11 @@ import java.util.Arrays;
 
 public class Competition {
 
-    OutputMode outputMode;
     MatchFourBot[] allBots;
     int[] points;
     int[] wins;
+    int[] draw;
+    int[] lost;
     int roundsPlayed;
 
     public Competition(MatchFourBot... allBots) {
@@ -19,7 +20,10 @@ public class Competition {
         Arrays.fill(this.points, 0);
         wins = new int[allBots.length];
         Arrays.fill(this.wins, 0);
-        this.outputMode = outputMode;
+        draw = new int[allBots.length];
+        Arrays.fill(this.draw, 0);
+        lost = new int[allBots.length];
+        Arrays.fill(this.lost, 0);
     }
 
     public void compete(int rounds) {
@@ -30,20 +34,22 @@ public class Competition {
                 for (int i = 0; i < rounds*2; i++) {
                     int winner = game.startRound(i%2==0);
                     switch (winner) {
-                        case 0:
+                        case 0 -> {
                             this.points[bot1] += 1;
                             this.points[bot2] += 1;
-                            this.wins[bot1]++;
-                            this.wins[bot2]++;
-                            break;
-                        case 1:
+                            this.draw[bot1]++;
+                            this.draw[bot2]++;
+                        }
+                        case 1 -> {
                             this.points[bot1] += 3;
                             this.wins[bot1]++;
-                            break;
-                        case 2:
+                            this.lost[bot2]++;
+                        }
+                        case 2 -> {
                             this.points[bot2] += 3;
                             this.wins[bot2]++;
-                            break;
+                            this.lost[bot1]++;
+                        }
                     }
                 }
             }
@@ -62,8 +68,15 @@ public class Competition {
         StringBuilder sb = new StringBuilder();
         DecimalFormat df = new DecimalFormat("#.0");
         for (int i = 0; i < this.allBots.length; i++) {
-            double roundsWonPercent = (this.wins[i] / (this.roundsPlayed*1.0)) * 100;
-            sb.append(this.allBots[i].getBotName()).append(" ".repeat(nameLength - this.allBots[i].getBotName().length())).append("=> " ).append(this.points[i]).append(" | ").append(df.format(roundsWonPercent)).append("% of rounds won").append("\n");
+            int playedRounds = this.wins[i] + this.draw[i] + this.lost[i];
+            double roundsWonPercent = ((double) this.wins[i]) / playedRounds * 100;
+            sb.append(this.allBots[i].getBotName())
+                    .append(" ".repeat(nameLength - this.allBots[i].getBotName().length())).append("=> " ).append(this.points[i])
+                    .append("p  \t| W:").append(this.wins[i])
+                    .append("\tD:").append(this.draw[i])
+                    .append("\tL:").append(this.lost[i])
+                    .append("     \t| WR: ").append(df.format(roundsWonPercent)).append("% ")
+                    .append("\n");
         }
         return sb.toString();
     }
@@ -72,6 +85,8 @@ public class Competition {
         MatchFourBot[] newBots = new MatchFourBot[this.allBots.length];
         int[] newPoints = new int[this.points.length];
         int[] newWins = new int[this.wins.length];
+        int[] newDraws = new int[this.draw.length];
+        int[] newLoses = new int[this.lost.length];
 
         for(int j = 0; j < this.points.length; j++) {
             int highestValue = -1;
@@ -85,12 +100,16 @@ public class Competition {
             newPoints[j] = this.points[position];
             newBots[j] = this.allBots[position];
             newWins[j] = this.wins[position];
+            newDraws[j] = this.draw[position];
+            newLoses[j] = this.lost[position];
             this.points[position] = -2;
         }
 
         this.allBots = newBots;
         this.points = newPoints;
         this.wins = newWins;
+        this.draw = newDraws;
+        this.lost = newLoses;
     }
 
 

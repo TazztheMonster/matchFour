@@ -39,7 +39,7 @@ public class Game{
      */
     public int startRound(boolean reversedStart) {
         this.gameBoard = new GameBoard();
-        for (int i = 0; i <= 60; i++) {
+        for (int i = 0; i <= 100; i++) {
             if((i % 2 == 0) != reversedStart) {
                 this.gameBoard.place(this.BOT1ICON, this.bot1.turn(this.gameBoard.getBoard(), this.BOT1ICON));
             } else {
