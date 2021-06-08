@@ -1,14 +1,14 @@
 package application;
 
-import bots.EuloBot;
-import bots.ExampleBot;
+import bots.*;
 import game.Competition;
+import game.GameBoard;
 
 public class Application {
 
     public static void main(String[] args) {
 
-        Competition competition = new Competition(new ExampleBot(), new EuloBot());
+        Competition competition = new Competition(new AssholeBot(), new ChaosBot(), new EuloBot(), new ExampleBot(), new PlebBot(), new RandomColumnFillerBot());
         competition.compete(50);
         System.out.println(competition.getResultsAsString());
 
