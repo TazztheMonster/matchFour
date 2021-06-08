@@ -19,7 +19,7 @@ public class Competition {
     public void compete(int rounds) {
         for (int bot1 = 0; bot1 < this.allBots.length; bot1++) {
             for (int bot2 = bot1+1; bot2 < this.allBots.length; bot2++) {
-                Game game = new Game(this.allBots[bot1], this.allBots[bot2], OutputMode.NONE);
+                Game game = new Game(this.allBots[bot1], this.allBots[bot2], OutputMode.FULL);
                 for (int i = 0; i < rounds*2; i++) {
                     int winner = game.startRound(i%2==0);
                     switch (winner) {

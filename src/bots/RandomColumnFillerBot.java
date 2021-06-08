@@ -13,9 +13,10 @@ public class RandomColumnFillerBot implements MatchFourBot {
 	@Override
 	public int turn(char[][] board, char icon) {
 		if (column < 0) {
-			this.column = getNextColumn(board, icon);
+			column = (int)(Math.random() * board[0].length);
 		}
-		return 0;
+		this.column = getNextColumn(board, column, icon);
+		return this.column;
 	}
 
 	@Override
@@ -28,13 +29,15 @@ public class RandomColumnFillerBot implements MatchFourBot {
 		return "Random Column Filler Bot";
 	}
 	
-	public int getNextColumn(char[][] board, char icon) {
+	public int getNextColumn(char[][] board, int currentIndex, char icon) {
 		int maxX = board[0].length;
 		List<Integer> xList = new ArrayList<>(maxX);
 		for (int i = 0; i < maxX; i++) {
 			xList.add(i);
 		}
+		xList.remove(currentIndex);
 		Collections.shuffle(xList);
+		xList.add(0, currentIndex);
 		for (int x : xList) {
 			int count = 0;
 			for (int y = 0; y < board.length; y++) {
