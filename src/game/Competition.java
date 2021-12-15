@@ -34,22 +34,22 @@ public class Competition {
                 for (int i = 0; i < rounds*2; i++) {
                     int winner = game.startRound(i%2==0);
                     switch (winner) {
-                        case 0 -> {
+                        case 0:
                             this.points[bot1] += 1;
                             this.points[bot2] += 1;
                             this.draw[bot1]++;
                             this.draw[bot2]++;
-                        }
-                        case 1 -> {
+                            break;
+                        case 1:
                             this.points[bot1] += 3;
                             this.wins[bot1]++;
                             this.lost[bot2]++;
-                        }
-                        case 2 -> {
+                            break;
+                        case 2:
                             this.points[bot2] += 3;
                             this.wins[bot2]++;
                             this.lost[bot1]++;
-                        }
+                            break;
                     }
                 }
             }
