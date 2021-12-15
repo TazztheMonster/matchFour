@@ -71,7 +71,7 @@ public class Competition {
             int playedRounds = this.wins[i] + this.draw[i] + this.lost[i];
             double roundsWonPercent = ((double) this.wins[i]) / playedRounds * 100;
             sb.append(this.allBots[i].getBotName())
-                    .append(" ".repeat(nameLength - this.allBots[i].getBotName().length())).append("=> " ).append(this.points[i])
+                    .append(new String(new char[nameLength - this.allBots[i].getBotName().length()]).replace("\0", " ")).append("=> " ).append(this.points[i])
                     .append("p  \t| W:").append(this.wins[i])
                     .append("\tD:").append(this.draw[i])
                     .append("\tL:").append(this.lost[i])
